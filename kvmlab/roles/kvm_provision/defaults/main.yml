@@ -1,0 +1,13 @@
+---
+# defaults file for kvm_provision
+base_image_name: Rocky-9-Cloud
+base_image_url: https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base-9.4-20240509.0.x86_64.qcow2
+base_image_sha: 2b521fdff4e4d1a0f1a10b53579a34bba8081ce5eb08e64e3ff22289557f0cfa
+libvirt_pool_dir: "/var/lib/libvirt/images"
+vm_name: rocky9-lab
+vm_vcpus: 2
+vm_ram_mb: 2048
+vm_net: default
+vm_root_pass: 123
+cleanup_tmp: no
+ssh_key: /root/.ssh/id_rsa.pub
