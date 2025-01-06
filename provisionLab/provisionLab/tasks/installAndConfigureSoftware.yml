@@ -1,0 +1,14 @@
+---
+- name: Install vim
+  ansible.builtin.dnf:
+    name: vim
+    state: present
+- name: Copy .vimrc to /etc/profile.d
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/../files/.vimrc"
+    dest: "/etc/vimrc"
+    owner: root
+    group: adm
+    mode: '0775'
+    force: true
+

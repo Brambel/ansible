@@ -1,0 +1,11 @@
+---
+- name: Add the user 'james' 
+  ansible.builtin.user:
+    name: james
+    groups: adm
+    append: yes
+- name: Set authorized key for 'james'
+  ansible.posix.authorized_key:
+    user: james
+    state: present
+    key: "{{ lookup('file', '/home/dev/.ssh/id_rsa.pub') }}"

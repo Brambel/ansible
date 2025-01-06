@@ -1,0 +1,19 @@
+- name: install git lab dependencies
+  ansible.builtin.dnf:
+    name:
+      - openssh-server
+      - ca-certificates
+      - perl
+      - postfix
+- name: pull gitlab-ee package
+  ansible.builtin.get_url:
+    url: "https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh"
+    dest: "/tmp/script.deb.sh"
+    mode: 0777
+- name: unpack package
+  ansible.builtin.shell: "/tmp/script.deb.sh"
+  args:
+    executable: /bin/bash
+- name: install package
+  ansible.builtin.shell:
+    cmd: "EXTERNAL_URL=\"http://localgit\" dnf install gitlab-ee"

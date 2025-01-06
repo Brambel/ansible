@@ -1,0 +1,11 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+  - import_tasks: "createUsers.yml"
+  - import_tasks: "installAndConfigureSoftware.yml"
+
+- hosts: gitlab 
+  remote_user: root
+  tasks:
+  - import_tasks: "installAndConfigGitlab.yml"
