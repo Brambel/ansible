@@ -1,0 +1,5 @@
+sudo virt-cat -a /var/lib/libvirt/images/rocky9-lab01.qcow2 /etc/shadow
+sudo virt-customize -a /var/lib/libvirt/images/rocky9-lab01.qcow2 --root-password password:123
+sudo virsh dominfo rocky9-lab01
+sudo virsh domifaddr rocky9-lab01
+sudo virsh list
